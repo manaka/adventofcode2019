@@ -1,49 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# require 'awesome_print'
-# require 'benchmark'
+require './02_gravity_assist'
 
-class GravityAssist
-
-  def initialize(code_src)
-    @code_arr = code_src.split(',').map(&:to_i)
-  end
-
-  def fix_program
-    pc = @code_arr.length / 4
-    (0..pc).each do |e|
-      start_index = e * 4
-      break if @code_arr[start_index] == 99
-
-      if @code_arr[start_index] == 1
-        @code_arr[@code_arr[start_index + 3]] = @code_arr[@code_arr[start_index + 1]] + @code_arr[@code_arr[start_index + 2]]
-      elsif @code_arr[start_index] == 2
-        @code_arr[@code_arr[start_index + 3]] = @code_arr[@code_arr[start_index + 1]] * @code_arr[@code_arr[start_index + 2]]
-      end
-    end
-  end
-
-  def state_before_break
-    @code_arr[1] = 12
-    @code_arr[2] = 2
-  end
-
-  def to_a
-    @code_arr
-  end
-
-  def to_s
-    @code_arr.join(', ')
-  end
-
-end
-
-code_src = File.open('02_input.txt').read()
+code_src = File.open('02_input.txt').read
 ga = GravityAssist.new code_src
-ga.state_before_break
+ga.set_state
 ga.fix_program
 puts ga.to_s
+
 
 # --- Day 2: 1202 Program Alarm ---
 # On the way to your gravity assist around the Moon, your ship computer beeps angrily about a "1202 program alarm". On the radio, an Elf is already explaining how to handle the situation: "Don't worry, that's perfectly norma--" The ship computer bursts into flames.
