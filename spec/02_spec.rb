@@ -1,6 +1,9 @@
+# frozen_string_literal: true
 require './02_gravity_assist'
 
 RSpec.describe GravityAssist, "#fix_program" do
+  before { skip("Done, not needed now") }
+
   context "with 1 sum" do
     it "example 1" do
       ga = GravityAssist.new '1,9,10,3,2,3,11,0,99,30,40,50'
