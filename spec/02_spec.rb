@@ -2,7 +2,7 @@
 require './02_gravity_assist'
 
 RSpec.describe GravityAssist, "#fix_program" do
-  before { skip("Done, not needed now") }
+  #before { skip("Done, not needed now") }
 
   context "with 1 sum" do
     it "example 1" do
