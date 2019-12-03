@@ -6,7 +6,7 @@ require './03_crossed_wires'
 input_src = File.open('03_input.txt').read
 wire1, wire2 = input_src.split("\n")
 cw = CrossedWires.new wire1, wire2
-puts cw.intersection_distance
+puts cw.minimal_signal_delay
 
 #
 #--- Day 3: Crossed Wires ---
